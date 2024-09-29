@@ -1,20 +1,33 @@
-package com.example.demo.entity;
+	package com.example.demo.entity;
 
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class User {
+@Table(name="user")
+public class User  implements Serializable{
 	
-	@Id
+	@Id	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Integer id;
 	
+	@Column(name="name")
 	private String name;
 	
+	@Column(name="address")
 	private String address;
 	
+	@Column(name="accountNumber")
 	private Long accountNumber;
 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,6 +58,11 @@ public class User {
 
 	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", address=" + address + ", accountNumber=" + accountNumber + "]";
 	}
 	
 	
