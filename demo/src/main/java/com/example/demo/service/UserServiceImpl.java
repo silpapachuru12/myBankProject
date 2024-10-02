@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,13 +33,10 @@ public class UserServiceImpl implements UserService{
 		return u;
 	}
   @Override
-	public User getUserDetails(User user) {
-		User uDetails=repo.getById(user.getId());
-		uDetails.getName();
-		uDetails.getAddress();
-		uDetails.getAccountNumber();
-		User  u =repo.save(uDetails);
-		return u;
+	public User getUserDetails(Integer id) {
+		
+		Optional<User>  u =repo.findById(id);
+		return u.get();
 	}
 
   @Override

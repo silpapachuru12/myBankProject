@@ -10,8 +10,8 @@ import com.example.demo.globalExceptionHandler.EmptyInputException;
 @ControllerAdvice
 public class MyControllerAdvice {
 	@ExceptionHandler(EmptyInputException.class)
-	ResponseEntity<String>handleEmptyInput(EmptyInputException emptyinputException){
-		return new ResponseEntity<String>("Input field is Empty, Please look into it", HttpStatus.BAD_REQUEST);
+	ResponseEntity<String> handleEmptyInput(EmptyInputException emptyinputException){
+		return new ResponseEntity<String>("Input field is Empty, Please look into it", HttpStatus.OK);
 	}
 
 }
